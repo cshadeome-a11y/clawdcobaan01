@@ -11,6 +11,8 @@ export const C = {
   orange: '#f4a261',
   ink: '#1b1b1b',
   white: '#ffffff',
+  // pure green screen — enable via the `greenscreen` URL param (see renderAt)
+  green: '#00ff00',
 };
 
 export const FONT =
