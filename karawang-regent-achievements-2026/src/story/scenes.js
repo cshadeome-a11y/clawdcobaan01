@@ -311,7 +311,7 @@ function scene2() {
     ctx.moveTo(258, 764);
     ctx.lineTo(302, 736);
     ctx.stroke();
-    txt('sumbu dipotong', 190, 905, { size: 28, align: 'left' });
+    txt('Sumbu Dipotong', 190, 905, { size: 28, align: 'left' });
   }
 
   // stems
@@ -685,7 +685,10 @@ export function renderAt(t) {
   const cam = camAt(t);
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.globalAlpha = 1;
-  ctx.fillStyle = C.paper;
+  // with ?greenscreen in the page URL, the paper background becomes a pure
+  // green screen so the picture can be keyed onto the user's footage
+  const GS = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('greenscreen');
+  ctx.fillStyle = GS ? C.green : C.paper;
   ctx.fillRect(0, 0, W, H);
   layer(cam, 0.06, 0.25, drawFar);
   layer(cam, 0.18, 0.4, drawHills);
